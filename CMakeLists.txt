@@ -13,8 +13,6 @@ if(APPLE)
 endif()
 
 if(UNIX AND NOT APPLE)
-    # for Linux, BSD, Solaris, Minix
-    #TODO: This is maybe wrong, fix me
     set(DOTNET_PLATFORM "linux-x64")
 endif()
 
@@ -37,3 +35,16 @@ add_executable(DotBeltNIF main.cpp)
 
 target_link_libraries(DotBeltNIF PUBLIC ${DOTNET_LIBNETHOST_LIBRARY} ${DOTNET_HOSTFXR_LIBRARY})
 #target_link_libraries(${PROJECT_NAME} PUBLIC ${DOTNET_SDK_NETHOST})
+
+add_custom_command(
+        TARGET DotBeltNIF POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/Managed/DotNetLib.dll
+        ${CMAKE_CURRENT_BINARY_DIR}/DotNetLib.dll)
+
+add_custom_command(
+        TARGET DotBeltNIF POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/Managed/DotNetLib.runtimeconfig.json
+        ${CMAKE_CURRENT_BINARY_DIR}/DotNetLib.runtimeconfig.json)
+

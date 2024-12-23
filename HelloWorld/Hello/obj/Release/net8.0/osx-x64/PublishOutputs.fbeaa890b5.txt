@@ -1,3 +1,0 @@
-/Users/lisbonera/CLionProjects/DotBeltNIF/Hello.dll
-/Users/lisbonera/CLionProjects/DotBeltNIF/Hello.deps.json
-/Users/lisbonera/CLionProjects/DotBeltNIF/Hello.pdb

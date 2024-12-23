@@ -1,3 +1,0 @@
-/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/bin/Release/net8.0/osx-arm64/publish/Hello.dll
-/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/bin/Release/net8.0/osx-arm64/publish/Hello.deps.json
-/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/bin/Release/net8.0/osx-arm64/publish/Hello.pdb
