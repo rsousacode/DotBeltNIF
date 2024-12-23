@@ -1,0 +1,11 @@
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/bin/Release/net8.0/Hello.deps.json
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/bin/Release/net8.0/Hello.dll
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/bin/Release/net8.0/Hello.pdb
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/obj/Release/net8.0/Hello.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/obj/Release/net8.0/Hello.AssemblyInfoInputs.cache
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/obj/Release/net8.0/Hello.AssemblyInfo.cs
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/obj/Release/net8.0/Hello.csproj.CoreCompileInputs.cache
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/obj/Release/net8.0/Hello.dll
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/obj/Release/net8.0/refint/Hello.dll
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/obj/Release/net8.0/Hello.pdb
+/Users/lisbonera/CLionProjects/DotBeltNIF/HelloWorld/Hello/obj/Release/net8.0/ref/Hello.dll

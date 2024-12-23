@@ -38,6 +38,7 @@
 #define DIR_SEPARATOR '/'
 #define MAX_PATH PATH_MAX
 
+
 #define string_compare strcmp
 
 #endif
@@ -66,8 +67,10 @@ int main(int argc, char *argv[])
     // Get the current executable's directory
     // This sample assumes the managed assembly to load and its runtime configuration file are next to the host
     char_t host_path[MAX_PATH];
-    auto resolved = realpath(argv[0], host_path);
+    auto resolved = realpath("/Users/lisbonera/CLionProjects/DotBeltNIF/Hello.dll", host_path);
     assert(resolved != nullptr);
+
+    std::cout << "resolved: " << resolved << std::endl;
 
     string_t root_path = host_path;
     auto pos = root_path.find_last_of(DIR_SEPARATOR);
@@ -88,6 +91,8 @@ namespace
 {
     int run_component_example(const string_t& root_path)
     {
+        std::cout << "root_path: " << root_path << std::endl;
+
         //
         // STEP 1: Load HostFxr and get exported hosting functions
         //
@@ -100,7 +105,7 @@ namespace
         //
         // STEP 2: Initialize and start the .NET Core runtime
         //
-        const string_t config_path = root_path + STR("DotNetLib.runtimeconfig.json");
+        const string_t config_path = root_path + STR("Hello.runtimeconfig.json");
         load_assembly_and_get_function_pointer_fn load_assembly_and_get_function_pointer = nullptr;
         load_assembly_and_get_function_pointer = get_dotnet_load_assembly(config_path.c_str());
         assert(load_assembly_and_get_function_pointer != nullptr && "Failure: get_dotnet_load_assembly()");
@@ -108,8 +113,8 @@ namespace
         //
         // STEP 3: Load managed assembly and get function pointer to a managed method
         //
-        const string_t dotnetlib_path = root_path + STR("DotNetLib.dll");
-        const char_t *dotnet_type = STR("DotNetLib.Lib, DotNetLib");
+        const string_t dotnetlib_path = root_path + STR("Hello.dll");
+        const char_t *dotnet_type = STR("Hello.Entry, Hello");
         const char_t *dotnet_type_method = STR("Hello");
         // <SnippetLoadAndGet>
         // Function pointer to managed delegate
@@ -170,7 +175,7 @@ namespace
             dotnetlib_path.c_str(),
             dotnet_type,
             STR("CustomEntryPoint") /*method_name*/,
-            STR("DotNetLib.Lib+CustomEntryPointDelegate, DotNetLib") /*delegate_type_name*/,
+            STR("Hello.Lib+CustomEntryPointDelegate, Hello") /*delegate_type_name*/,
             nullptr,
             (void**)&custom);
         assert(rc == 0 && custom != nullptr && "Failure: load_assembly_and_get_function_pointer()");
@@ -182,6 +187,7 @@ namespace
     int run_app_example(const string_t& root_path)
     {
         const string_t app_path = root_path + STR("App.dll");
+        std::cout << "App path: " << app_path << std::endl;
 
         if (!load_hostfxr(app_path.c_str()))
         {
